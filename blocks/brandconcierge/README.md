@@ -27,3 +27,9 @@ The block model has no authorable fields in Universal Editor (`fields: []`). Run
 ## Error handling
 
 If `datastreamId` / `orgId` are wrong or Edge calls fail, the experience may not render; check the browser console and Adobe Datastream configuration. Network or CSP issues loading `/scripts/alloy.js` or `/scripts/brandconciergemain.js` will prevent the UI from appearing.
+
+### Troubleshooting: empty mount, nothing loads
+
+1. **Content Security Policy** — `head.html` uses `script-src` with `'strict-dynamic'`, so **every** script (including inline) must use `nonce="aem"`. Without it, the browser never runs `alloy("configure", …)` or the bootstrap block.
+2. **DOM timing** — `sendEvent` / `bootstrapConversationalExperience` run after `DOMContentLoaded` so `#brand-concierge-mount` exists (the block is in the document body, not the head).
+3. Open DevTools → **Console** for `[Brand Concierge] sendEvent or bootstrap failed:` or network errors to Edge (`edge.adobedc.net`).

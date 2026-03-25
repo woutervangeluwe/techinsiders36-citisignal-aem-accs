@@ -44,8 +44,8 @@
 <script nonce="aem" src="/scripts/aem.js" type="module"></script>
 <script nonce="aem" src="/scripts/scripts.js" type="module"></script>
 <script nonce="aem" src="/scripts/commerce.js" type="module"></script>
-<script src="/scripts/styleconfigurations.js"></script>
-<script>
+<script nonce="aem" src="/scripts/styleconfigurations.js"></script>
+<script nonce="aem">
   !function (n, o) {
     o.forEach(function (o) {
       n[o] || ((n.__alloyNS = n.__alloyNS || []).push(o), n[o] = function () {
@@ -56,12 +56,12 @@
   }(window, ["alloy"]);
 </script>
 <script nonce="aem" src="/scripts/alloy.js"></script>
-<script>
+<script nonce="aem">
+  /* CSP: strict-dynamic requires nonce on inline scripts. Configure Alloy immediately; defer sendEvent/bootstrap until #brand-concierge-mount exists. */
   alloy("configure", {
     defaultConsent: "in",
     edgeDomain: "edge.adobedc.net",
     edgeBasePath: "ee",
-    // Datastream: alexanderd - CitiSignal Brand Concierge. - Datastream (sandbox: techinsiders36)
     datastreamId: "b60c331c-9ae7-48f5-80b5-374c81ff93f1",
     orgId: "907075E95BF479EC0A495C73@AdobeOrg",
     debugEnabled: true,
@@ -70,19 +70,29 @@
     prehidingStyle: ".personalization-container { opacity: 0 !important }",
   });
 
-  window.alloy("sendEvent", {
-    conversation: {
-      fetchConversationalExperience: true
-    }
-  }).then((result) => {
-    console.log("Conversation experience fetched", result);
-    window.alloy("bootstrapConversationalExperience", {
-      selector: "#brand-concierge-mount",
-      src: "/scripts/brandconciergemain.js",
-      stylingConfigurations: window.styleConfiguration,
-      stickySession: true
+  function bootstrapBrandConcierge() {
+    return window.alloy("sendEvent", {
+      conversation: {
+        fetchConversationalExperience: true
+      }
+    }).then(function (result) {
+      console.log("Conversation experience fetched", result);
+      return window.alloy("bootstrapConversationalExperience", {
+        selector: "#brand-concierge-mount",
+        src: "/scripts/brandconciergemain.js",
+        stylingConfigurations: window.styleConfiguration,
+        stickySession: true
+      });
+    }).catch(function (err) {
+      console.error("[Brand Concierge] sendEvent or bootstrap failed:", err);
     });
-  });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootstrapBrandConcierge);
+  } else {
+    bootstrapBrandConcierge();
+  }
 </script>
 
 <link rel="modulepreload" href="/scripts/__dropins__/tools/lib/aem/configs.js" />
