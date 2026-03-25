@@ -9,3 +9,6 @@ scripts/commerce-events-sdk.js
 plugins/
 cypress/
 dompurify.min.js
+scripts/alloy.js
+scripts/brandconciergemain.js
+scripts/styleconfigurations.js

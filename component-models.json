@@ -150,6 +150,10 @@
     ]
   },
   {
+    "id": "brandconcierge",
+    "fields": []
+  },
+  {
     "id": "card",
     "fields": [
       {
@@ -188,6 +192,155 @@
     ]
   },
   {
+    "id": "commerce-account-header",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Account Header",
+        "value": "My Account"
+      }
+    ]
+  },
+  {
+    "id": "commerce-addresses",
+    "fields": [
+      {
+        "component": "boolean",
+        "name": "minified-view",
+        "label": "Minified View",
+        "value": false
+      }
+    ]
+  },
+  {
+    "id": "commerce-cart",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "start-shopping-url",
+        "label": "Start Shopping URL",
+        "description": "Link to the start shopping page"
+      },
+      {
+        "component": "aem-content",
+        "name": "checkout-url",
+        "label": "Checkout URL",
+        "description": "Link to Checkout page"
+      },
+      {
+        "component": "boolean",
+        "name": "hide-heading",
+        "label": "Hide Heading",
+        "description": "Hide the heading of the cart"
+      },
+      {
+        "component": "boolean",
+        "name": "hide-attributes",
+        "label": "Hide Attributes",
+        "description": "Hide the attributes of the cart"
+      },
+      {
+        "component": "boolean",
+        "name": "enable-item-quantity-update",
+        "label": "Enable Item Quantity Update",
+        "description": "Enable the ability to update the quantity of items in the cart"
+      },
+      {
+        "component": "boolean",
+        "name": "enable-item-remove",
+        "label": "Enable Item Remove",
+        "description": "Enable the ability to remove items from the cart"
+      },
+      {
+        "component": "boolean",
+        "name": "enable-estimate-shipping",
+        "label": "Enable Estimate Shipping",
+        "description": "Enable the ability to estimate shipping costs"
+      },
+      {
+        "component": "boolean",
+        "name": "undo-remove-item",
+        "label": "Enable Undo Remove Item",
+        "description": "Enable the ability to undo the removal of an item from the cart"
+      },
+      {
+        "component": "number",
+        "name": "max-items",
+        "label": "Max Items",
+        "description": "Maximum number of items to display in the cart"
+      }
+    ]
+  },
+  {
+    "id": "commerce-mini-cart",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "start-shopping-url",
+        "label": "Start Shopping URL",
+        "description": "Link to the start shopping page"
+      },
+      {
+        "component": "aem-content",
+        "name": "cart-url",
+        "label": "Cart URL",
+        "description": "Link to full shopping Cart"
+      },
+      {
+        "component": "aem-content",
+        "name": "checkout-url",
+        "label": "Checkout URL",
+        "description": "Link to Checkout page"
+      },
+      {
+        "component": "boolean",
+        "name": "enable-updating-product",
+        "label": "Enable Updating Product",
+        "description": "Enable Updating Product"
+      },
+      {
+        "component": "boolean",
+        "name": "undo-remove-item",
+        "label": "Enable Undo Remove Item",
+        "description": "Enable the ability to undo the removal of an item from the cart"
+      }
+    ]
+  },
+  {
+    "id": "commerce-orders-list",
+    "fields": [
+      {
+        "component": "boolean",
+        "name": "minified-view",
+        "label": "Minified View",
+        "value": false
+      }
+    ]
+  },
+  {
+    "id": "commerce-returns-list",
+    "fields": [
+      {
+        "component": "boolean",
+        "name": "minified-view",
+        "label": "Minified View",
+        "value": false
+      }
+    ]
+  },
+  {
+    "id": "commerce-wishlist",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "start-shopping-url",
+        "label": "Start Shopping URL",
+        "description": "Start Shopping URL"
+      }
+    ]
+  },
+  {
     "id": "embed-adaptive-form",
     "fields": [
       {
@@ -199,6 +352,51 @@
         "validation": {
           "rootPath": "/content/forms/af"
         }
+      }
+    ]
+  },
+  {
+    "id": "enrichment",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "label": "Type",
+        "description": "What enrichment type to match with",
+        "options": [
+          {
+            "name": "Product",
+            "value": "product"
+          },
+          {
+            "name": "Category",
+            "value": "category"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "position",
+        "label": "Position",
+        "description": "Position to match with",
+        "options": [
+          {
+            "name": "Below Product",
+            "value": "below-product"
+          },
+          {
+            "name": "Above Product",
+            "value": "above-product"
+          },
+          {
+            "name": "Below Category",
+            "value": "below-category"
+          },
+          {
+            "name": "Above Category",
+            "value": "above-category"
+          }
+        ]
       }
     ]
   },
@@ -4901,200 +5099,6 @@
         "name": "tooltip",
         "label": "Short description",
         "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "commerce-account-header",
-    "fields": [
-      {
-        "component": "text",
-        "name": "title",
-        "label": "Account Header",
-        "value": "My Account"
-      }
-    ]
-  },
-  {
-    "id": "commerce-addresses",
-    "fields": [
-      {
-        "component": "boolean",
-        "name": "minified-view",
-        "label": "Minified View",
-        "value": false
-      }
-    ]
-  },
-  {
-    "id": "commerce-cart",
-    "fields": [
-      {
-        "component": "aem-content",
-        "name": "start-shopping-url",
-        "label": "Start Shopping URL",
-        "description": "Link to the start shopping page"
-      },
-      {
-        "component": "aem-content",
-        "name": "checkout-url",
-        "label": "Checkout URL",
-        "description": "Link to Checkout page"
-      },
-      {
-        "component": "boolean",
-        "name": "hide-heading",
-        "label": "Hide Heading",
-        "description": "Hide the heading of the cart"
-      },
-      {
-        "component": "boolean",
-        "name": "hide-attributes",
-        "label": "Hide Attributes",
-        "description": "Hide the attributes of the cart"
-      },
-      {
-        "component": "boolean",
-        "name": "enable-item-quantity-update",
-        "label": "Enable Item Quantity Update",
-        "description": "Enable the ability to update the quantity of items in the cart"
-      },
-      {
-        "component": "boolean",
-        "name": "enable-item-remove",
-        "label": "Enable Item Remove",
-        "description": "Enable the ability to remove items from the cart"
-      },
-      {
-        "component": "boolean",
-        "name": "enable-estimate-shipping",
-        "label": "Enable Estimate Shipping",
-        "description": "Enable the ability to estimate shipping costs"
-      },
-      {
-        "component": "boolean",
-        "name": "undo-remove-item",
-        "label": "Enable Undo Remove Item",
-        "description": "Enable the ability to undo the removal of an item from the cart"
-      },
-      {
-        "component": "number",
-        "name": "max-items",
-        "label": "Max Items",
-        "description": "Maximum number of items to display in the cart"
-      }
-    ]
-  },
-  {
-    "id": "commerce-mini-cart",
-    "fields": [
-      {
-        "component": "aem-content",
-        "name": "start-shopping-url",
-        "label": "Start Shopping URL",
-        "description": "Link to the start shopping page"
-      },
-      {
-        "component": "aem-content",
-        "name": "cart-url",
-        "label": "Cart URL",
-        "description": "Link to full shopping Cart"
-      },
-      {
-        "component": "aem-content",
-        "name": "checkout-url",
-        "label": "Checkout URL",
-        "description": "Link to Checkout page"
-      },
-      {
-        "component": "boolean",
-        "name": "enable-updating-product",
-        "label": "Enable Updating Product",
-        "description": "Enable Updating Product"
-      },
-      {
-        "component": "boolean",
-        "name": "undo-remove-item",
-        "label": "Enable Undo Remove Item",
-        "description": "Enable the ability to undo the removal of an item from the cart"
-      }
-    ]
-  },
-  {
-    "id": "commerce-orders-list",
-    "fields": [
-      {
-        "component": "boolean",
-        "name": "minified-view",
-        "label": "Minified View",
-        "value": false
-      }
-    ]
-  },
-  {
-    "id": "commerce-returns-list",
-    "fields": [
-      {
-        "component": "boolean",
-        "name": "minified-view",
-        "label": "Minified View",
-        "value": false
-      }
-    ]
-  },
-  {
-    "id": "commerce-wishlist",
-    "fields": [
-      {
-        "component": "aem-content",
-        "name": "start-shopping-url",
-        "label": "Start Shopping URL",
-        "description": "Start Shopping URL"
-      }
-    ]
-  },
-  {
-    "id": "enrichment",
-    "fields": [
-      {
-        "component": "select",
-        "name": "type",
-        "label": "Type",
-        "description": "What enrichment type to match with",
-        "options": [
-          {
-            "name": "Product",
-            "value": "product"
-          },
-          {
-            "name": "Category",
-            "value": "category"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "position",
-        "label": "Position",
-        "description": "Position to match with",
-        "options": [
-          {
-            "name": "Below Product",
-            "value": "below-product"
-          },
-          {
-            "name": "Above Product",
-            "value": "above-product"
-          },
-          {
-            "name": "Below Category",
-            "value": "below-category"
-          },
-          {
-            "name": "Above Category",
-            "value": "above-category"
-          }
-        ]
       }
     ]
   },
