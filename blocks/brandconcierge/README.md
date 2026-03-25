@@ -6,6 +6,7 @@ This block provides a DOM mount point (`#brand-concierge-mount`) for Adobe Brand
 
 ## Configuration
 
+- **Source of truth**: Block metadata lives in `blocks/brandconcierge/_brandconcierge.json`. Run `npm run build:json` after editing; `component-definition.json` / `component-models.json` are generated. Section allow-lists use `brandconcierge` via `models/_common-blocks.json`.
 - **Authoring**: Add the **BrandConcierge** block to a section in Universal Editor; the block has no authored fields (`component-models` uses an empty `fields` array).
 - **Runtime**: Styling and behavior come from `/scripts/styleconfigurations.js` (`window.styleConfiguration`) and Alloy bootstrap in `head.html`.
 - **Required secrets**: Set `datastreamId` and `orgId` in the Alloy `configure` call in `head.html` to your Datastream ID and IMS org ID (see the One Adobe tutorial).

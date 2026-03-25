@@ -38,6 +38,12 @@
           "...": "../blocks/columns/_*.json#/definitions"
         },
         {
+          "...": "../blocks/embed-adaptive-form/_*.json#/definitions"
+        },
+        {
+          "...": "../blocks/form/_*.json#/definitions"
+        },
+        {
           "...": "../blocks/fragment/_*.json#/definitions"
         },
         {
@@ -48,6 +54,15 @@
         },
         {
           "...": "../blocks/content-fragment/_*.json#/definitions"
+        }
+      ]
+    },
+    {
+      "title": "Custom Form Components",
+      "id": "custom-components",
+      "components": [
+        {
+          "...": "../blocks/form/components/range/_*.json#/definitions"
         }
       ]
     },
